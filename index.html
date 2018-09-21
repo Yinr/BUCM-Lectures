@@ -12,9 +12,11 @@
         <div class="box" v-for="item in items">
             <div class="level">
                 <div class="level-left">
-                    <span class="level-item tag is-light">{{ item.date }}</span>
-                    <span class="level-item">|</span>
-                    <span class="level-item tag is-light">{{ item.time }}</span>
+                    <span class="level-item">
+                        <span class="tag is-light">{{ item.date }}</span>
+                        <span>|</span>
+                        <span class="tag is-light">{{ item.time }}</span>
+                    </span>
                 </div>
                 <div class="level-right">
                     <span class="level-item tag is-light">@{{ item.classroom }}</span>
