@@ -4,7 +4,7 @@ var lecturesVM = new Vue({
         items: [{
             id: 28190609,
             title: "三十年中美临床感悟-田海河博士",
-            time: "2018-9-21T14:00:00",
+            time: "2018-9-21 14:00:00",
             classroom: "东-9教",
             url: "https://a.xiumi.us/stage/v5/37Dxv/107159455"
         }]
