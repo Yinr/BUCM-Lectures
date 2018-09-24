@@ -21,6 +21,14 @@ var lecturesVM = new Vue({
         },
         fmtClassroom: function(str) {
             return '@' + str;
+        },
+        getSignUpUrl: function(id) {
+            var url = 'https://bucmedu.wjx.cn/jq/' + id + '.aspx';
+            return url;
+        },
+        getSignInUrl: function(id) {
+            var url = 'https://bucmedu.wjx.cn/app/checkin.aspx?activity=' + id;
+            return url;
         }
     },
     computed: {

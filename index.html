@@ -43,12 +43,12 @@
                 <div class="level-right">
                     <a class="level-item button is-link is-small"
                       :class="{'is-static': isOutTime(item.time)}"
-                      :href="'https://bucmedu.wjx.cn/jq/' + item.id + '.aspx'">
+                      :href="item.id | getSignUpUrl">
                         报名
                     </a>
                     <a class="level-item button is-success is-small"
                       :class="{'is-static': !isDuringTime(item.time)}"
-                      :href="'https://bucmedu.wjx.cn/app/checkin.aspx?activity=' + item.id">
+                      :href="item.id | getSignInUrl">
                         签到
                     </a>
                 </div>
