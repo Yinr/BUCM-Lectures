@@ -29,6 +29,11 @@ var lecturesVM = new Vue({
         getSignInUrl: function(id) {
             var url = 'https://bucmedu.wjx.cn/app/checkin.aspx?activity=' + id;
             return url;
+        },
+        getClassroomUrl: function(classroom) {
+            var url = 'https://class.yinr.cc/classroom/#' + classroom;
+            if (classroom.length == 0) { url = ""; }
+            return url;
         }
     },
     computed: {

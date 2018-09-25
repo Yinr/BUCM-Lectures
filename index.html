@@ -24,9 +24,10 @@
                     </span>
                 </div>
                 <div class="level-right">
-                    <span class="level-item tag is-light">
+                    <a class="level-item tag is-light"
+                      :href="item.classroom | getClassroomUrl">
                         {{ item.classroom | fmtClassroom }}
-                    </span>
+                    </a>
                 </div>
             </div>
             <span class="level-item title is-4"
