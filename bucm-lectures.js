@@ -7,6 +7,12 @@ var lecturesVM = new Vue({
             time: "2018-9-21 14:00:00",
             classroom: "东-9教",
             url: "https://a.xiumi.us/stage/v5/37Dxv/107159455"
+        },{
+            id: 29642680,
+            title: "中医药创新发展分论坛",
+            time: "2018-10-26 14:00:00",
+            classroom: "西-三报",
+            url: "https://r.xiumi.us/stage/v5/37Dxv/113332369"
         }]
     },
     filters: {
