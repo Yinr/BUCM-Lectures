@@ -62,7 +62,7 @@ function isDuringTime(strTime) {
     var lectTime = new Date(strTime);
     var lectEndTime = new Date(lectTime);
     lectEndTime.setHours(lectTime.getHours() + 4);
+    lectTime.setHours(lectTime.getHours() - 1);
     var now = new Date();
-    lectTime.setHours(lectTime.getHours() + 4);
     return now >= lectTime && now <= lectEndTime;
 }
