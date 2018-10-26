@@ -8,6 +8,11 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
     <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
+    <style media="screen">
+        #cnzz_stat_icon_1275164029 img {
+            width: 12px;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,32 +29,25 @@
                     </span>
                 </div>
                 <div class="level-right">
-                    <a class="level-item tag is-light"
-                      :href="item.classroom | getClassroomUrl">
+                    <a class="level-item tag is-light" :href="item.classroom | getClassroomUrl">
                         {{ item.classroom | fmtClassroom }}
                     </a>
                 </div>
             </div>
-            <span class="level-item title is-4"
-                 :class="{'has-text-grey': isOutTime(item.time)}">
+            <span class="level-item title is-4" :class="{'has-text-grey': isOutTime(item.time)}">
                 {{ item.title }}
             </span>
             <div class="level">
                 <div class="level-left">
-                    <a class="button is-gray is-small has-text-grey-light"
-                      :href="item.url">
+                    <a class="button is-gray is-small has-text-grey-light" :href="item.url">
                         详情
                     </a>
                 </div>
                 <div class="level-right">
-                    <a class="level-item button is-link is-small"
-                      :class="{'is-static': isOutTime(item.time)}"
-                      :href="item.id | getSignUpUrl">
+                    <a class="level-item button is-link is-small" :class="{'is-static': isOutTime(item.time)}" :href="item.id | getSignUpUrl">
                         报名
                     </a>
-                    <a class="level-item button is-success is-small"
-                      :class="{'is-static': !isDuringTime(item.time)}"
-                      :href="item.id | getSignInUrl">
+                    <a class="level-item button is-success is-small" :class="{'is-static': !isDuringTime(item.time)}" :href="item.id | getSignInUrl">
                         签到
                     </a>
                 </div>
@@ -61,7 +59,13 @@
 
     <footer class="footer">
         <small class="content has-text-centered">
-            <p>Copyright &copy; 2018 <a href="https://yinr.cc">Yinr</a>.</p>
+            <p>
+                <span>Copyright &copy; 2018 <a href="https://yinr.cc">Yinr</a>.</span>
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1275164029'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1275164029%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+            </p>
         </small>
     </footer>
 </body>
