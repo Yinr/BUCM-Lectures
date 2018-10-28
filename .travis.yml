@@ -10,7 +10,6 @@ cache:
 
 # S: Build Lifecycle
 install:
-  - npm install buefy
   - npm install
 
 before_script:

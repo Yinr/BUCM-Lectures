@@ -1,11 +1,11 @@
 <template>
-<footer class="footer">
-  <small class="content has-text-centered">
-    <p>
+<v-footer app class="footer">
+  <v-layout justify-center>
+    <small>
       <span>Copyright &copy; 2018 <a href="https://yinr.cc">Yinr</a>.</span>
-    </p>
-  </small>
-</footer>
+    </small>
+  </v-layout>
+</v-footer>
 </template>
 
 <script>

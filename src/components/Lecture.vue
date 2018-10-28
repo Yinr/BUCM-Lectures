@@ -1,38 +1,40 @@
 <template>
-<div class="lecture box">
-  <div class="level is-mobile">
-    <div class="level-left">
-      <span class="level-item tag has-text-left">
-        <span class="tag is-light">
-          {{ lectInfo.time | fmtDate }}
-        </span>
-      </span>
-    </div>
-    <div class="level-right">
-      <a class="level-item tag is-light" :href="lectInfo.classroom | getClassroomUrl">
-        {{ lectInfo.classroom | fmtClassroom }}
-      </a>
-    </div>
-  </div>
-  <span class="level-item title is-4" :class="{'has-text-grey': this.isOutTime(lectInfo.time)}">
-    {{ lectInfo.title }}
-  </span>
-  <div class="level">
-    <div class="level-left">
-      <a class="button is-gray is-small has-text-grey-light" :href="lectInfo.url">
-        详情
-      </a>
-    </div>
-    <div class="level-right">
-      <a class="level-item button is-link is-small" :class="{'is-static': this.isOutTime(lectInfo.time)}" :href="lectInfo.id | getSignUpUrl">
-        报名
-      </a>
-      <a class="level-item button is-success is-small" :class="{'is-static': !this.isDuringTime(lectInfo.time)}" :href="lectInfo.id | getSignInUrl">
-        签到
-      </a>
-    </div>
-  </div>
-</div>
+<v-flex>
+  <v-card class="lecture" elevation-2>
+    <v-container text-xs-center>
+      <v-layout column>
+        <v-layout px-1>
+          <v-card flat class="caption grey--text">
+            {{ lectInfo.time | fmtDate }}
+          </v-card>
+          <v-spacer></v-spacer>
+          <v-card flat class="caption grey--text" :href="lectInfo.classroom | getClassroomUrl">
+            {{ lectInfo.classroom | fmtClassroom }}
+          </v-card>
+        </v-layout>
+        <v-flex>
+          <span class="level-item title is-4" :class="{'has-text-grey': this.isOutTime(lectInfo.time)}">
+            {{ lectInfo.title }}
+          </span>
+        </v-flex>
+        <v-flex>
+          <v-layout>
+            <v-btn small outline color="teal" :href="lectInfo.url">
+              详情
+            </v-btn>
+            <v-spacer></v-spacer>
+            <v-btn small color="info" :disabled="this.isOutTime(lectInfo.time)" :href="lectInfo.id | getSignUpUrl">
+              报名
+            </v-btn>
+            <v-btn small color="success" :disabled="!this.isDuringTime(lectInfo.time)" :href="lectInfo.id | getSignInUrl">
+              签到
+            </v-btn>
+          </v-layout>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-card>
+</v-flex>
 </template>
 
 <script>

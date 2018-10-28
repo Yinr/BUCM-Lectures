@@ -1,10 +1,10 @@
 import Vue from 'vue'
-import Buefy from 'buefy'
-import 'buefy/dist/buefy.css'
-import App from './App.vue'
+import './plugins/vuetify'
 import './registerServiceWorker'
+import 'roboto-fontface/css/roboto/roboto-fontface.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import App from './App.vue'
 
-Vue.use(Buefy)
 Vue.config.productionTip = false
 
 new Vue({
