@@ -3,15 +3,17 @@
   <v-card class="lecture" elevation-2>
     <v-container text-xs-center>
       <v-layout column>
-        <v-layout px-1>
-          <v-card flat class="caption grey--text">
-            {{ lectInfo.time | fmtDate }}
-          </v-card>
-          <v-spacer></v-spacer>
-          <v-card flat class="caption grey--text" :href="lectInfo.classroom | getClassroomUrl">
-            {{ lectInfo.classroom | fmtClassroom }}
-          </v-card>
-        </v-layout>
+        <v-flex>
+          <v-layout px-1>
+            <v-card flat class="caption grey--text">
+              {{ lectInfo.time | fmtDate }}
+            </v-card>
+            <v-spacer></v-spacer>
+            <v-card flat class="caption grey--text" :href="lectInfo.classroom | getClassroomUrl">
+              {{ lectInfo.classroom | fmtClassroom }}
+            </v-card>
+          </v-layout>
+        </v-flex>
         <v-flex>
           <span class="level-item title is-4" :class="{'has-text-grey': this.isOutTime(lectInfo.time)}">
             {{ lectInfo.title }}
