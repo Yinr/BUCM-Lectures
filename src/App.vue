@@ -51,6 +51,12 @@ export default {
         classroom: "西-三报",
         url: "https://r.xiumi.us/stage/v5/37Dxv/113436024"
       }, {
+        id: 31814748,
+        title: "医学的反向研究",
+        time: "2018-12-6 14:00:00",
+        classroom: "西-三报",
+        url: "https://b.xiumi.us/stage/v5/37Dxv/121293291"
+      }, {
         id: 31812524,
         title: "中医特色诊疗在重大疑难疾病上的应用",
         time: "2018-12-7 8:30:00",
