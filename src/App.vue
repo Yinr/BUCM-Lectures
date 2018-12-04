@@ -62,6 +62,12 @@ export default {
         time: "2018-12-7 8:30:00",
         classroom: "西-三报",
         url: "https://d.xiumi.us/stage/v5/37Dxv/121306908"
+      }, {
+        id: 31275473,
+        title: "穴位研究的国际进展与反思",
+        time: "2018-12-7 13:30:00",
+        classroom: "西-博物馆一层报告厅",
+        url: "https://d.xiumi.us/stage/v5/37Dxv/119420548"
       }]
     }
   },
