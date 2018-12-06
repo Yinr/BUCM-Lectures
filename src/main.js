@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import './plugins/axios'
 import './plugins/vuetify'
 import './registerServiceWorker'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
