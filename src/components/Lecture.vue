@@ -85,7 +85,7 @@ export default {
       var lectTime = new Date(strTime);
       var lectEndTime = new Date(lectTime);
       lectEndTime.setHours(22);
-      lectTime.setHours(lectTime.getHours() - 1);
+      lectTime.setHours(0, -30);
       var now = new Date();
       return now >= lectTime && now <= lectEndTime;
     }
