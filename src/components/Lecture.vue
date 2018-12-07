@@ -84,7 +84,7 @@ export default {
     isDuringTime(strTime) {
       var lectTime = new Date(strTime);
       var lectEndTime = new Date(lectTime);
-      lectEndTime.setHours(lectTime.getHours() + 4);
+      lectEndTime.setHours(22);
       lectTime.setHours(lectTime.getHours() - 1);
       var now = new Date();
       return now >= lectTime && now <= lectEndTime;
