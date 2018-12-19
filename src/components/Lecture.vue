@@ -21,7 +21,7 @@
         </v-flex>
         <v-flex>
           <v-layout>
-            <v-btn small outline color="teal" :href="lectInfo.url">
+            <v-btn small outline color="teal" :href="lectInfo.infoId | getInfoUrl">
               详情
             </v-btn>
             <v-spacer></v-spacer>
@@ -65,6 +65,10 @@ export default {
     getSignInUrl: function(id) {
       var url = 'https://bucmedu.wjx.cn/app/checkin.aspx?activity=' + id;
       return url;
+    },
+    getInfoUrl: function(infoId) {
+      let infoUrl = "https://xiumi.us/stage/v5/37Dxv/" + infoId;
+      return infoUrl;
     },
     getClassroomUrl: function(classroom) {
       var url = 'https://class.yinr.cc/classroom/#' + classroom;
