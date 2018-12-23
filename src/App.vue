@@ -1,17 +1,9 @@
 <template>
-<v-app id="bucm-lectures" class="section">
-  <v-toolbar color="indigo" dark>
-    <v-toolbar-title>
-      BUCM Lectures
-    </v-toolbar-title>
-  </v-toolbar>
-  <v-container fluid grid-list-xl>
-    <v-layout row wrap>
-      <lecture v-for="lecture in sortedLectures" :lectInfo="lecture" :key="lecture.id"></lecture>
-    </v-layout>
-  </v-container>
+<div id="bucm-lectures" class="section">
+  <h1 class="title is-2">BUCM Lectures</h1>
+  <lecture v-for="lecture in sortedLectures" :lectInfo="lecture" :key="lecture.id"></lecture>
   <y-footer></y-footer>
-</v-app>
+</div>
 </template>
 
 <script>
