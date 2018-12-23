@@ -10,14 +10,14 @@
     <b>{{ lectInfo.title }}</b>
   </Row>
   <Row type="flex" justify="space-between">
-    <Button size="small" shape="circle" ghost type="primary" :to="infoUrl">
+    <Button size="small" shape="circle" ghost type="primary" target="_blank" :to="infoUrl">
       详情
     </Button>
     <ButtonGroup size="small">
-      <Button type="info" :disabled="this.isOutTime(lectInfo.time)" :to="signUpUrl">
+      <Button type="info" :disabled="this.isOutTime(lectInfo.time)" target="_blank" :to="signUpUrl">
         报名
       </Button>
-      <Button type="success" :disabled="!this.isDuringTime(lectInfo.time)" :to="signInUrl">
+      <Button type="success" :disabled="!this.isDuringTime(lectInfo.time)" target="_blank" :to="signInUrl">
         签到
       </Button>
     </ButtonGroup>
@@ -45,7 +45,7 @@ export default {
       let crack = this.crack;
       let url_base = crack ?
         'http://wjx.yinr.cc/?id=' :
-        'https//bucmedu.wjx.cn/app/checkin.aspx?activity=';
+        'https://bucmedu.wjx.cn/app/checkin.aspx?activity=';
       let url = url_base + this.lectInfo.id;
       return url;
     },
