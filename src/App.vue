@@ -1,20 +1,28 @@
 <template>
 <div id="bucm-lectures" class="section">
-  <h1 class="title is-2">BUCM Lectures</h1>
-  <lecture v-for="lecture in sortedLectures" :lectInfo="lecture" :key="lecture.id"></lecture>
-  <y-footer></y-footer>
+  <Layout class="layout">
+    <Header class="header">
+      <div>BUCM Lectures</div>
+    </Header>
+    <Content class="content">
+      <Row type="flex">
+        <Col :xs="24" :sm="12" :lg="8" v-for="lecture in sortedLectures">
+        <lecture class="lecture" :lectInfo="lecture" :key="lecture.id"></lecture>
+        </Col>
+      </Row>
+    </Content>
+    <Footer class="footer">Copyright &copy; 2018 <a href="https://yinr.cc">Yinr</a>.</Footer>
+  </Layout>
 </div>
 </template>
 
 <script>
 import Lecture from './components/Lecture.vue'
-import YFooter from './components/Footer.vue'
 
 export default {
   name: 'bucm-lectures',
   components: {
     Lecture,
-    YFooter
   },
   data() {
     return {
@@ -67,6 +75,24 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+.layout {
+    position: relative;
+    .header {
+        position: sticky;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 3px 3px lightgray;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+    }
+    .content {
+        font-family: "";
+    }
+    .footer {
+        text-align: center;
+    }
+}
 </style>

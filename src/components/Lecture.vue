@@ -1,42 +1,28 @@
 <template>
-<v-flex>
-  <v-card class="lecture" elevation-2>
-    <v-container text-xs-center>
-      <v-layout column>
-        <v-flex>
-          <v-layout px-1>
-            <v-card flat class="caption grey--text">
-              {{ lectInfo.time | fmtDate }}
-            </v-card>
-            <v-spacer></v-spacer>
-            <v-card flat class="caption grey--text" :href="lectInfo.classroom | getClassroomUrl">
-              {{ lectInfo.classroom | fmtClassroom }}
-            </v-card>
-          </v-layout>
-        </v-flex>
-        <v-flex>
-          <span class="level-item title is-4" :class="{'has-text-grey': this.isOutTime(lectInfo.time)}">
-            {{ lectInfo.title }}
-          </span>
-        </v-flex>
-        <v-flex>
-          <v-layout>
-            <v-btn small outline color="teal" :href="lectInfo.infoId | getInfoUrl">
-              详情
-            </v-btn>
-            <v-spacer></v-spacer>
-            <v-btn small color="info" :disabled="this.isOutTime(lectInfo.time)" :href="lectInfo.id | getSignUpUrl">
-              报名
-            </v-btn>
-            <v-btn small color="success" :disabled="!this.isDuringTime(lectInfo.time)" :href="lectInfo.id | getSignInUrl">
-              签到
-            </v-btn>
-          </v-layout>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </v-card>
-</v-flex>
+<Card class="lecture" :padding="10">
+  <Row class="lecture-topinfo" type="flex" justify="space-between">
+    <Time :time="lectInfo.time" />
+    <span><a :href="lectInfo.classroom | getClassroomUrl">
+        {{ lectInfo.classroom | fmtClassroom }}
+      </a></span>
+  </Row>
+  <Row class="lecture-title" :class="{'has-text-grey': this.isOutTime(lectInfo.time)}">
+    <b>{{ lectInfo.title }}</b>
+  </Row>
+  <Row type="flex" justify="space-between">
+    <Button size="small" shape="circle" ghost type="primary" :to="lectInfo.infoId | getInfoUrl">
+      详情
+    </Button>
+    <ButtonGroup size="small">
+      <Button type="info" :disabled="this.isOutTime(lectInfo.time)" :to="lectInfo.id | getSignUpUrl">
+        报名
+      </Button>
+      <Button type="success" :disabled="!this.isDuringTime(lectInfo.time)" :to="lectInfo.id | getSignInUrl">
+        签到
+      </Button>
+    </ButtonGroup>
+  </Row>
+</Card>
 </template>
 
 <script>
@@ -97,6 +83,26 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-
+<style lang="scss">
+.lecture {
+    margin: 10px;
+    box-shadow: 1px 1px 1px lightgray;
+    .lecture-topinfo span {
+        color: #9ea7b4;
+        font-size: smaller;
+        a:link,
+        a:visited {
+            color: #9ea7b4;
+        }
+    }
+    .lecture-title {
+        margin: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+    }
+    .ivu-btn {
+        padding: 0 14px;
+        line-height: 1.5;
+    }
+}
 </style>
