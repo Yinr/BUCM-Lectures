@@ -2,22 +2,22 @@
 <Card class="lecture" :padding="10">
   <Row class="lecture-topinfo" type="flex" justify="space-between">
     <Time :time="lectInfo.time" />
-    <span><a :href="lectInfo.classroom | getClassroomUrl">
-        {{ lectInfo.classroom | fmtClassroom }}
+    <span><a :href="classroomUrl">
+        @{{ lectInfo.classroom }}
       </a></span>
   </Row>
   <Row class="lecture-title" :class="{'has-text-grey': this.isOutTime(lectInfo.time)}">
     <b>{{ lectInfo.title }}</b>
   </Row>
   <Row type="flex" justify="space-between">
-    <Button size="small" shape="circle" ghost type="primary" :to="lectInfo.infoId | getInfoUrl">
+    <Button size="small" shape="circle" ghost type="primary" :to="infoUrl">
       详情
     </Button>
     <ButtonGroup size="small">
-      <Button type="info" :disabled="this.isOutTime(lectInfo.time)" :to="lectInfo.id | getSignUpUrl">
+      <Button type="info" :disabled="this.isOutTime(lectInfo.time)" :to="signUpUrl">
         报名
       </Button>
-      <Button type="success" :disabled="!this.isDuringTime(lectInfo.time)" :to="lectInfo.id | getSignInUrl">
+      <Button type="success" :disabled="!this.isDuringTime(lectInfo.time)" :to="signInUrl">
         签到
       </Button>
     </ButtonGroup>
@@ -29,39 +29,35 @@
 export default {
   name: 'Lecture',
   props: {
-    lectInfo: Object
+    lectInfo: Object,
+    crack: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
   },
-  filters: {
-    fmtDate: function(str) {
-      var theDate = new Date(str);
-      return (theDate.getFullYear() + '/' +
-        (theDate.getMonth() + 1) + '/' +
-        theDate.getDate() + ' ' +
-        theDate.getHours() + ':' +
-        (theDate.getMinutes() < 10 ? "0" : "") + theDate.getMinutes()
-      )
-    },
-    fmtClassroom: function(str) {
-      return '@' + str;
-    },
-    getSignUpUrl: function(id) {
-      var url = 'https://bucmedu.wjx.cn/jq/' + id + '.aspx';
+  computed: {
+    signUpUrl() {
+      let url = 'https://bucmedu.wjx.cn/jq/' + this.lectInfo.id + '.aspx';
       return url;
     },
-    getSignInUrl: function(id) {
-      var url = 'https://bucmedu.wjx.cn/app/checkin.aspx?activity=' + id;
+    signInUrl() {
+      let crack = this.crack;
+      let url_base = crack ?
+        'http://wjx.yinr.cc/?id=' :
+        'https//bucmedu.wjx.cn/app/checkin.aspx?activity=';
+      let url = url_base + this.lectInfo.id;
       return url;
     },
-    getInfoUrl: function(infoId) {
+    infoUrl() {
+      let infoId = this.lectInfo.infoId;
       let infoUrl = "https://xiumi.us/stage/v5/37Dxv/" + infoId;
       return infoUrl;
     },
-    getClassroomUrl: function(classroom) {
-      var url = 'https://class.yinr.cc/classroom/#' + classroom;
-      if (classroom.length == 0) {
-        url = "";
-      }
-      return url;
+    classroomUrl() {
+      let classroom = this.lectInfo.classroom;
+      let url = 'https://class.yinr.cc/classroom/#' + classroom;
+      return classroom.length == 0 ? "" : url;
     }
   },
   methods: {

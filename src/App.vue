@@ -5,11 +5,7 @@
       <div>BUCM Lectures</div>
     </Header>
     <Content class="content">
-      <Row type="flex">
-        <Col :xs="24" :sm="12" :lg="8" v-for="lecture in sortedLectures">
-        <lecture class="lecture" :lectInfo="lecture" :key="lecture.id"></lecture>
-        </Col>
-      </Row>
+      <router-view :sLectures="sortedLectures"></router-view>
     </Content>
     <Footer class="footer">Copyright &copy; 2018 <a href="https://yinr.cc">Yinr</a>.</Footer>
   </Layout>
@@ -17,13 +13,13 @@
 </template>
 
 <script>
-import Lecture from './components/Lecture.vue'
+// import Lecture from '@/components/Lecture.vue'
 
 export default {
   name: 'bucm-lectures',
-  components: {
-    Lecture,
-  },
+  // components: {
+  //   Lecture
+  // },
   data() {
     return {
       lectures: []
@@ -40,6 +36,9 @@ export default {
       return this.lectures.sort(
         (a, b) => (new Date(b.time)) - (new Date(a.time))
       );
+    },
+    crack() {
+      return (this.$route.params.type === "crack")
     }
   },
   methods: {
