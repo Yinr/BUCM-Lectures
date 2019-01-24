@@ -44,7 +44,7 @@ export default {
     signInUrl() {
       let crack = this.crack;
       let url_base = crack ?
-        'http://wjx.yinr.cc/?id=' :
+        'http://wjx.yinr.cc/bucm/' :
         'https://bucmedu.wjx.cn/app/checkin.aspx?activity=';
       let url = url_base + this.lectInfo.id;
       return url;
