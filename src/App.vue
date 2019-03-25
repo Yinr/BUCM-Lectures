@@ -13,13 +13,8 @@
 </template>
 
 <script>
-// import Lecture from '@/components/Lecture.vue'
-
 export default {
   name: 'bucm-lectures',
-  // components: {
-  //   Lecture
-  // },
   data() {
     return {
       lectures: []
@@ -32,13 +27,10 @@ export default {
     this.initCNZZ();
   },
   computed: {
-    sortedLectures: function() {
+    sortedLectures: function () {
       return this.lectures.sort(
         (a, b) => (new Date(b.time)) - (new Date(a.time))
       );
-    },
-    crack() {
-      return (this.$route.params.type === "crack")
     }
   },
   methods: {
