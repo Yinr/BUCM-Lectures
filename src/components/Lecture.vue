@@ -1,7 +1,9 @@
 <template>
 <Card class="lecture" :padding="10">
   <Row class="lecture-topinfo" type="flex" justify="space-between">
-    <Time :time="lectInfo.time" />
+    <Tooltip :content="lectInfo.time" placement="top-start">
+      <Time :time="lectInfo.time" />
+    </Tooltip>
     <span><a :href="classroomUrl">
         @{{ lectInfo.classroom }}
       </a></span>
