@@ -2,7 +2,10 @@
 <div id="bucm-lectures" class="section">
   <Layout class="layout">
     <Header class="header">
-      <div>BUCM Lectures</div>
+      <div class="header-title">BUCM Lectures</div>
+      <Button type="text" ghost @click="updateData">
+        <Icon type="md-refresh" size="20" />
+      </Button>
     </Header>
     <Content class="content">
       <router-view :sLectures="sortedLectures"></router-view>
@@ -70,6 +73,9 @@ export default {
 .layout {
     position: relative;
     .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         position: sticky;
         width: 100%;
         top: 0;
