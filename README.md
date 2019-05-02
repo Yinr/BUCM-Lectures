@@ -1,5 +1,7 @@
 # bucm-lectures
 
+[![build status](https://travis-ci.org/Yinr/BUCM-Lectures.svg?branch=master)](https://travis-ci.org/Yinr/BUCM-Lectures)
+
 ## Project setup
 ```
 npm install
