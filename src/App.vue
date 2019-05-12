@@ -1,17 +1,18 @@
 <template>
 <div id="bucm-lectures" class="section">
-  <Layout class="layout">
-    <Header class="header">
+  <aLayout>
+    <aLayoutHeader>
       <div class="header-title">BUCM Lectures</div>
-      <Button type="text" ghost @click="updateData">
-        <Icon type="md-refresh" size="20" />
-      </Button>
-    </Header>
-    <Content class="content">
+      <!-- <aButton ghost icon="reload" @click="updateData" /> -->
+      <aIcon id="fresh-btn" type="reload" @click="updateData" />
+    </aLayoutHeader>
+    <aLayoutContent>
       <router-view :sLectures="sortedLectures"></router-view>
-    </Content>
-    <Footer class="footer">Copyright &copy; 2018 <a href="https://yinr.cc">Yinr</a>.</Footer>
-  </Layout>
+    </aLayoutContent>
+    <aLayoutFooter>
+      Copyright &copy; 2018 <a href="https://yinr.cc">Yinr</a>.
+    </aLayoutFooter>
+  </aLayout>
 </div>
 </template>
 
@@ -70,9 +71,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.layout {
+.ant-layout {
     position: relative;
-    .header {
+    .ant-layout-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -84,11 +85,11 @@ export default {
         font-size: 24px;
         font-weight: bold;
         color: white;
+        #fresh-btn:hover {
+            color: lightblue;
+        }
     }
-    .content {
-        font-family: "";
-    }
-    .footer {
+    .ant-layout-footer {
         text-align: center;
     }
 }

@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import './plugins/axios'
+import Antd from 'ant-design-vue'
 import App from './App.vue'
+import 'ant-design-vue/dist/antd.css'
 import './registerServiceWorker'
-import iView from 'iview';
-import 'iview/dist/styles/iview.css';
 import router from './router'
 
 Vue.config.productionTip = false
-Vue.use(iView);
+
+Vue.use(Antd)
 
 new Vue({
   router,

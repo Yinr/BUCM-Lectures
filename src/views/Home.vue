@@ -1,10 +1,10 @@
 <template>
 <div class="home">
-  <Row type="flex">
-    <Col :xs="24" :sm="12" :lg="8" v-for="lecture in sLectures">
-    <lecture class="lecture" :lectInfo="lecture" :key="lecture.id" :crack="crack"></lecture>
-    </Col>
-  </Row>
+  <aRow type="flex" class="lecture-flex">
+    <aCol :xs="24" :sm="12" :lg="8" :xxl="6" v-for="lecture in sLectures">
+      <lecture class="lecture" :lectInfo="lecture" :key="lecture.id" :crack="crack"></lecture>
+    </aCol>
+  </aRow>
 </div>
 </template>
 
@@ -32,3 +32,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.lecture-flex {
+    // align-items: stretch;
+}
+</style>

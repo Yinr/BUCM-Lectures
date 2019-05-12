@@ -1,35 +1,37 @@
 <template>
-<Card class="lecture" :padding="10">
-  <Row class="lecture-topinfo" type="flex" justify="space-between">
-    <Tooltip :content="lectInfo.time" placement="top-start">
-      <Time :time="lectInfo.time" />
-    </Tooltip>
+<aCard class="lecture" :bodyStyle="{padding: '20px'}" @click="toggleShowTitle">
+  <aRow class="lecture-topinfo" type="flex" justify="space-between">
+    <span>{{lectInfo.time}}</span>
     <span><a :href="classroomUrl">
         @{{ lectInfo.classroom }}
       </a></span>
-  </Row>
-  <Row class="lecture-title" :class="{'has-text-grey': this.isOutTime(lectInfo.time)}">
-    <b>{{ lectInfo.title }}</b>
-  </Row>
-  <Row type="flex" justify="space-between">
-    <Button size="small" shape="circle" ghost type="primary" target="_blank" :to="infoUrl">
-      详情
-    </Button>
-    <ButtonGroup size="small">
-      <Button type="info" :disabled="this.isOutTime(lectInfo.time)" target="_blank" :to="signUpUrl">
-        报名
-      </Button>
-      <Button type="success" :disabled="!this.isDuringTime(lectInfo.time)" target="_blank" :to="signInUrl">
-        签到
-      </Button>
-    </ButtonGroup>
-  </Row>
-</Card>
+  </aRow>
+  <aRow class="lecture-title" :class="{'lecture-title-grey': this.isOutTime(lectInfo.time)}">
+    <span v-if="showTitle">{{ lectInfo.title }}</span>
+    <aCardMeta v-else :title="lectInfo.title" />
+  </aRow>
+  <template slot="actions">
+    <a target="_blank" :href="infoUrl">
+      <aIcon type="info-circle">详情</aIcon>
+    </a>
+    <a target="_blank" :href="signUpUrl" :disabled="this.isOutTime(lectInfo.time)">
+      <aIcon type="edit">报名</aIcon>
+    </a>
+    <a target="_blank" :href="signInUrl" :disabled="!this.isDuringTime(lectInfo.time)">
+      <aIcon type="environment">签到</aIcon>
+    </a>
+  </template>
+</aCard>
 </template>
 
 <script>
 export default {
   name: 'Lecture',
+  data() {
+    return {
+      showTitle: false,
+    }
+  },
   props: {
     lectInfo: Object,
     crack: {
@@ -76,14 +78,17 @@ export default {
       lectTime.setHours(lectTime.getHours(), lectTime.getMinutes() - 30);
       var now = new Date();
       return now >= lectTime && now <= lectEndTime;
+    },
+    toggleShowTitle() {
+      return this.showTitle = !this.showTitle
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .lecture {
-    margin: 10px;
+    margin: 5px 10px;
     box-shadow: 1px 1px 1px lightgray;
     .lecture-topinfo span {
         color: #9ea7b4;
@@ -98,7 +103,10 @@ export default {
         font-size: 16px;
         text-align: center;
     }
-    .ivu-btn {
+    .lecture-title-grey {
+        color: grey;
+    }
+    .ant-button {
         padding: 0 14px;
         line-height: 1.5;
     }
