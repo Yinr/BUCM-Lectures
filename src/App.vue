@@ -10,7 +10,7 @@
       <router-view :sLectures="sortedLectures"></router-view>
     </aLayoutContent>
     <aLayoutFooter>
-      Copyright &copy; 2018 <a href="https://yinr.cc">Yinr</a>.
+      Copyright &copy; 2018-2019 <a href="https://yinr.cc">Yinr</a>.
     </aLayoutFooter>
   </aLayout>
 </div>
