@@ -1,10 +1,6 @@
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
-  pwa: {
-    name: 'BUCM Lectures'
-  },
-
   outputDir: './dist',
   assetsDir: '',
   runtimeCompiler: undefined,
