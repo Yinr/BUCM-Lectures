@@ -3,7 +3,6 @@ module.exports = {
     name: 'BUCM Lectures'
   },
 
-  baseUrl: undefined,
   outputDir: undefined,
   assetsDir: undefined,
   runtimeCompiler: undefined,
