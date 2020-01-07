@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.3b71bfc07a7b4092be0208fe383d2b0d.js"
+  "/precache-manifest.4808b5e4dcb4b39f093bf3781077faea.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "bucm-lectures"});
