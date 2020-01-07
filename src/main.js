@@ -1,14 +1,18 @@
 import Vue from 'vue'
 import './plugins/axios'
-import Antd from 'ant-design-vue'
 import App from './App.vue'
-import 'ant-design-vue/dist/antd.css'
 import './registerServiceWorker'
 import router from './router'
 
-Vue.config.productionTip = false
+import { Layout, Row, Col, Card, Icon } from 'ant-design-vue';
 
-Vue.use(Antd)
+Vue.use(Layout);
+Vue.use(Row);
+Vue.use(Col);
+Vue.use(Card);
+Vue.use(Icon);
+
+Vue.config.productionTip = false
 
 new Vue({
   router,
